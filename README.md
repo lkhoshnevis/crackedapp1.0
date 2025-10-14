@@ -17,114 +17,107 @@ A gamified website that connects Dougherty Valley High School alumni through com
 - **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
 - **Backend**: Supabase (PostgreSQL, Real-time subscriptions)
 - **Data Processing**: Papa Parse for CSV handling
-- **Search**: Fuse.js for fuzzy search
-- **Deployment**: Vercel-ready
+- **Deployment**: Vercel
+- **Icons**: Lucide React
 
-## Setup Instructions
+## Getting Started
 
-### 1. Clone and Install Dependencies
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+- Supabase account
+
+### Installation
+
+1. Clone the repository:
 ```bash
-cd /Users/leonkhoshnevis/Crackedapp-1.0
+git clone https://github.com/lkhoshnevis/crackedapp1.0.git
+cd crackedapp1.0
+```
+
+2. Install dependencies:
+```bash
 npm install
 ```
 
-### 2. Set Up Supabase
-
-1. Create a new project at [supabase.com](https://supabase.com)
-2. Run the SQL schema from `lib/database.sql` in your Supabase SQL editor
-3. Copy your project URL and anon key
-
-### 3. Environment Configuration
-
-Create a `.env.local` file:
-
+3. Set up environment variables:
 ```bash
 cp env.example .env.local
 ```
 
-Update `.env.local` with your Supabase credentials:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://gwvsuxjoxmsppmzdqaep.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3dnN1eGpveG1zcHBtemRxYWVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAzOTE4ODIsImV4cCI6MjA3NTk2Nzg4Mn0.1VVXomMm1P66XWKaKiLxPaTtlLQq4ULkKs8T3mLphPo
+4. Configure your Supabase credentials in `.env.local`:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-### 4. Upload Initial Data
+5. Set up the database:
+   - Go to your Supabase project dashboard
+   - Navigate to the SQL Editor
+   - Run the SQL commands from `lib/database.sql`
 
-1. Prepare a CSV file with alumni data in this format:
-   ```csv
-   name,location,college,degree,role,company,linkedin profile url
-   John Doe,San Francisco,Stanford University,Computer Science,Software Engineer,Google,https://linkedin.com/in/johndoe
-   ```
+6. Start the development server:
+```bash
+npm run dev
+```
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+Visit `http://localhost:3000` to see the application.
 
-3. Navigate to `/admin` and upload your CSV file
+## Usage
 
-### 5. Deploy to Vercel
+### For Users
+1. **Vote**: Go to the Vote page to see two random alumni profiles
+2. **Search**: Use the search bar on the home page to find specific alumni
+3. **Leaderboard**: Check the leaderboard to see current ELO rankings
+
+### For Admins
+1. **Upload Data**: Use the admin panel to upload CSV files with alumni data
+2. **Analytics**: View voting statistics and user engagement metrics
+3. **Manage Profiles**: Update or add new alumni profiles
+
+## CSV Format
+
+Your CSV should include these columns:
+- `Profile_Name`: Full name of the alumni
+- `addressWithoutCountry`: Location
+- `Profile_Picture_URL`: LinkedIn profile picture URL
+- `High School`: High school name
+- `DVHS class of`: Graduation year
+- `College_1_Name`, `College_1_Degree`, `College_1_Logo`: Primary college info
+- `Experience_1_Company`, `Experience_1_Role`, `Experience_1_Logo`: Primary work experience
+- `linkedinUrl`: LinkedIn profile URL (optional but recommended)
+- Additional college/experience columns (2, 3, 4) as available
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+3. Deploy automatically on every push to main
+
+### Manual Deployment
 
 ```bash
 npm run build
-vercel --prod
+npm start
 ```
-
-## Database Schema
-
-The application uses the following main tables:
-
-- **alumni_profiles**: Core alumni information and ELO ratings
-- **experiences**: Work experience records
-- **education**: Education records
-- **vote_sessions**: Voting session tracking
-- **elo_history**: ELO change history for analytics
-- **search_analytics**: Search query tracking
-
-## API Endpoints
-
-- **GET /api/profiles**: Get alumni profiles with search
-- **POST /api/vote**: Submit a vote and update ELO ratings
-- **GET /api/leaderboard**: Get current leaderboard
-- **POST /api/admin/upload**: Upload CSV data (admin only)
-
-## Real-time Features
-
-- Live ELO updates across all connected users
-- Real-time leaderboard changes
-- Live vote notifications
-- Real-time search results
-
-## Admin Features
-
-- CSV data upload and processing
-- Profile management and ELO adjustment
-- Vote analytics and session tracking
-- Real-time statistics dashboard
-
-## Performance Optimizations
-
-- Server-side rendering for initial page loads
-- Optimistic UI updates for voting
-- Efficient database queries with proper indexing
-- Real-time subscriptions for live updates
-- Image optimization for profile pictures
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-name`
 5. Submit a pull request
 
 ## License
 
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Support
 
 For questions or issues, please open a GitHub issue or contact the development team.
-
