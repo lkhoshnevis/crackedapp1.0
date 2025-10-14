@@ -1,0 +1,12 @@
+name,location,college,degree,role,company,linkedin profile url
+John Smith,San Francisco,Stanford University,Computer Science,Software Engineer,Google,https://linkedin.com/in/johnsmith
+Sarah Johnson,Seattle,UC Berkeley,Data Science,Data Scientist,Microsoft,https://linkedin.com/in/sarahjohnson
+Michael Chen,New York,Carnegie Mellon,Electrical Engineering,Product Manager,Meta,https://linkedin.com/in/michaelchen
+Emily Davis,Austin,University of Texas,Business Administration,Marketing Manager,Apple,https://linkedin.com/in/emilydavis
+David Wilson,Los Angeles,UCLA,Computer Science,Software Developer,Netflix,https://linkedin.com/in/davidwilson
+Lisa Brown,Boston,Harvard University,Computer Science,AI Researcher,OpenAI,https://linkedin.com/in/lisabrown
+James Miller,Chicago,Northwestern,Finance,Investment Banker,Goldman Sachs,https://linkedin.com/in/jamesmiller
+Jennifer Garcia,Miami,University of Florida,Marketing,Brand Manager,Nike,https://linkedin.com/in/jennifergarcia
+Robert Martinez,Denver,Colorado State,Mechanical Engineering,Aerospace Engineer,Boeing,https://linkedin.com/in/robertmartinez
+Amanda Taylor,Portland,University of Oregon,Psychology,UX Designer,Adobe,https://linkedin.com/in/amandataylor
+
