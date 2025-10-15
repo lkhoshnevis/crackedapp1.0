@@ -122,93 +122,69 @@ export default function VotePage() {
           </p>
         </div>
 
-      <div className="relative">
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          {/* Profile 1 */}
-          <div className="relative">
-            <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
-              <AlumniProfileCard
-                profile={votingPair.profile1}
-                showElo={voted}
-                showLinkedIn={voted}
-                blurred={!voted}
-                eloChange={eloChanges?.profile1.change}
-                hoverLinkedIn={voted}
-              />
+        <div className="relative flex justify-center items-center">
+          {/* Profiles Container */}
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 w-full max-w-5xl">
+            {/* Profile 1 */}
+            <div className="relative">
+              <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
+                <AlumniProfileCard
+                  profile={votingPair.profile1}
+                  showElo={voted}
+                  showLinkedIn={voted}
+                  blurred={!voted}
+                  eloChange={eloChanges?.profile1.change}
+                  hoverLinkedIn={voted}
+                />
+              </div>
+              {!voted && (
+                <button
+                  onClick={() => handleVote(votingPair.profile1.id)}
+                  className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                />
+              )}
             </div>
-            {!voted && (
-              <button
-                onClick={() => handleVote(votingPair.profile1.id)}
-                className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
-              />
-            )}
+
+            {/* Profile 2 */}
+            <div className="relative">
+              <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
+                <AlumniProfileCard
+                  profile={votingPair.profile2}
+                  showElo={voted}
+                  showLinkedIn={voted}
+                  blurred={!voted}
+                  eloChange={eloChanges?.profile2.change}
+                  hoverLinkedIn={voted}
+                />
+              </div>
+              {!voted && (
+                <button
+                  onClick={() => handleVote(votingPair.profile2.id)}
+                  className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                />
+              )}
+            </div>
           </div>
 
-          {/* Profile 2 */}
-          <div className="relative">
-            <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
-              <AlumniProfileCard
-                profile={votingPair.profile2}
-                showElo={voted}
-                showLinkedIn={voted}
-                blurred={!voted}
-                eloChange={eloChanges?.profile2.change}
-                hoverLinkedIn={voted}
-              />
-            </div>
-            {!voted && (
-              <button
-                onClick={() => handleVote(votingPair.profile2.id)}
-                className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
-              />
-            )}
-          </div>
-        </div>
-
-        {/* VS Circle - positioned between profiles */}
-        <div className="flex justify-center items-center my-8">
-          <div className="relative">
-            <div className="w-20 h-20 bg-linkedin-blue rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              VS
-            </div>
-            {!voted && (
+          {/* Center Action Button */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+            {!voted ? (
               <button
                 onClick={() => handleVote()}
-                className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200"
+                className="w-20 h-20 sm:w-24 sm:h-24 bg-white/90 backdrop-blur-sm hover:bg-linkedin-blue hover:text-white rounded-full flex items-center justify-center text-gray-700 font-bold text-sm sm:text-base shadow-2xl transition-all duration-200 border-4 border-gray-200 hover:border-linkedin-blue"
               >
                 Equal
+              </button>
+            ) : (
+              <button
+                onClick={loadNewPair}
+                className="w-20 h-20 sm:w-24 sm:h-24 bg-linkedin-blue hover:bg-linkedin-dark rounded-full flex items-center justify-center text-white font-bold shadow-2xl transition-all duration-200 border-4 border-white"
+              >
+                <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8" />
               </button>
             )}
           </div>
         </div>
-      </div>
-
-      {/* Next Pair Button */}
-      {voted && (
-        <div className="text-center">
-          <button
-            onClick={loadNewPair}
-            className="linkedin-button inline-flex items-center px-8 py-3 text-lg"
-          >
-            <ArrowRight className="w-5 h-5 mr-2" />
-            Next Pair
-          </button>
-        </div>
-      )}
-
-      {/* Voting Instructions */}
-      {!voted && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
-            How to Vote
-          </h3>
-          <p className="text-blue-800">
-            Click on the profile you think is more &quot;cracked&quot; or click &quot;Equal&quot; if you think they&apos;re equally impressive.
-            <br />
-            Names, profile pictures, ELO scores, and LinkedIn links will be revealed after you vote.
-          </p>
-        </div>
-      )}
       </div>
     </div>
   )
