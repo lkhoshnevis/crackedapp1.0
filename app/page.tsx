@@ -87,9 +87,10 @@ export default function HomePage() {
             <img 
               src="/dv-logo.png" 
               alt="DV" 
-              className="h-12 sm:h-16 w-auto mr-1"
+              className="h-16 sm:h-20 w-auto mr-1"
             />
-            <span>HS Alumni Network</span>
+            <span className="text-[#5BA3D4]">HS</span>
+            <span className="ml-2">Alumni Network</span>
           </h1>
           <p className="text-sm text-gray-400 mb-8">
             limited to CS Majors
