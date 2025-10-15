@@ -5,6 +5,7 @@ import { AlumniProfile } from '@/lib/supabase'
 import AlumniProfileCard from '@/components/AlumniProfileCard'
 import { VotingService, VotingPair } from '@/lib/voting'
 import { ArrowRight, RotateCcw, Trophy, Home, TrendingUp } from 'lucide-react'
+import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 export default function VotePage() {
   const [votingPair, setVotingPair] = useState<VotingPair | null>(null)
@@ -92,27 +93,24 @@ export default function VotePage() {
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       {/* Navigation Buttons */}
       <div className="absolute top-6 left-6 flex space-x-3">
-        <a
-          href="/"
-          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-linkedin-blue hover:text-linkedin-dark font-medium"
-        >
-          <Home className="w-5 h-5 mr-2" />
-          Home
-        </a>
-        <a
-          href="/vote"
-          className="inline-flex items-center px-4 py-2 bg-linkedin-blue/10 backdrop-blur-sm rounded-lg shadow-sm text-linkedin-blue font-medium"
-        >
-          <Trophy className="w-5 h-5 mr-2" />
-          Vote
-        </a>
-        <a
-          href="/leaderboard"
-          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-600 hover:text-linkedin-blue font-medium"
-        >
-          <TrendingUp className="w-5 h-5 mr-2" />
-          Leaderboard
-        </a>
+        <LiquidButton asChild size="default">
+          <a href="/" className="inline-flex items-center font-medium">
+            <Home className="w-5 h-5 mr-2" />
+            Home
+          </a>
+        </LiquidButton>
+        <LiquidButton asChild size="default" variant="primary">
+          <a href="/vote" className="inline-flex items-center font-medium">
+            <Trophy className="w-5 h-5 mr-2" />
+            Vote
+          </a>
+        </LiquidButton>
+        <LiquidButton asChild size="default">
+          <a href="/leaderboard" className="inline-flex items-center font-medium">
+            <TrendingUp className="w-5 h-5 mr-2" />
+            Leaderboard
+          </a>
+        </LiquidButton>
       </div>
 
       <div className="max-w-6xl mx-auto pt-16">
@@ -169,19 +167,20 @@ export default function VotePage() {
           {/* Center Action Button */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
             {!voted ? (
-              <button
+              <LiquidButton
                 onClick={() => handleVote()}
-                className="w-20 h-20 sm:w-24 sm:h-24 bg-white/90 backdrop-blur-sm hover:bg-linkedin-blue hover:text-white rounded-full flex items-center justify-center text-gray-700 font-bold text-sm sm:text-base shadow-2xl transition-all duration-200 border-4 border-gray-200 hover:border-linkedin-blue"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full text-sm sm:text-base"
               >
                 Equal
-              </button>
+              </LiquidButton>
             ) : (
-              <button
+              <LiquidButton
                 onClick={loadNewPair}
-                className="w-20 h-20 sm:w-24 sm:h-24 bg-linkedin-blue hover:bg-linkedin-dark rounded-full flex items-center justify-center text-white font-bold shadow-2xl transition-all duration-200 border-4 border-white"
+                variant="primary"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full"
               >
                 <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8" />
-              </button>
+              </LiquidButton>
             )}
           </div>
         </div>

@@ -7,6 +7,7 @@ import AlumniProfileCard from '@/components/AlumniProfileCard'
 import ProfilePicture from '@/components/ProfilePicture'
 import { Trophy, Users, TrendingUp, ExternalLink, Home } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
+import { LiquidButton, LiquidGlassCard } from '@/components/ui/liquid-glass-button'
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState<AlumniProfile[]>([])
@@ -62,13 +63,12 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       {/* Home Button */}
       <div className="absolute top-6 left-6">
-        <a
-          href="/"
-          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-linkedin-blue hover:text-linkedin-dark font-medium"
-        >
-          <Home className="w-5 h-5 mr-2" />
-          Home
-        </a>
+        <LiquidButton asChild size="default">
+          <a href="/" className="inline-flex items-center font-medium">
+            <Home className="w-5 h-5 mr-2" />
+            Home
+          </a>
+        </LiquidButton>
       </div>
 
       {/* Hero Section */}
@@ -92,20 +92,18 @@ export default function HomePage() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto">
-            <a
-              href="/vote"
-              className="linkedin-button inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg"
-            >
-              <Trophy className="w-5 h-5 mr-2" />
-              Start Voting
-            </a>
-            <a
-              href="/leaderboard"
-              className="linkedin-button-outline inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg"
-            >
-              <TrendingUp className="w-5 h-5 mr-2" />
-              View Leaderboard
-            </a>
+            <LiquidButton asChild size="xl" variant="primary">
+              <a href="/vote" className="inline-flex items-center justify-center text-base sm:text-lg font-semibold">
+                <Trophy className="w-5 h-5 mr-2" />
+                Start Voting
+              </a>
+            </LiquidButton>
+            <LiquidButton asChild size="xl" variant="outline">
+              <a href="/leaderboard" className="inline-flex items-center justify-center text-base sm:text-lg font-semibold">
+                <TrendingUp className="w-5 h-5 mr-2" />
+                View Leaderboard
+              </a>
+            </LiquidButton>
           </div>
         </div>
       </div>
@@ -134,7 +132,7 @@ export default function HomePage() {
           ) : (
             <div className="grid gap-6">
               {searchResults.map((profile) => (
-                <div key={profile.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200">
+                <LiquidGlassCard key={profile.id} className="p-6 hover:shadow-md transition-shadow duration-200">
                   <div className="flex items-start space-x-4">
                     <ProfilePicture profile={profile} size="lg" />
                     <div className="flex-1 min-w-0">
@@ -166,7 +164,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </LiquidGlassCard>
               ))}
             </div>
           )}

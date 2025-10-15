@@ -3,6 +3,7 @@
 import { AlumniProfile } from '@/lib/supabase'
 import ProfilePicture from './ProfilePicture'
 import { ExternalLink, MapPin, Building, GraduationCap } from 'lucide-react'
+import { LiquidGlassCard } from '@/components/ui/liquid-glass-button'
 
 interface AlumniProfileCardProps {
   profile: AlumniProfile
@@ -31,7 +32,7 @@ export default function AlumniProfileCard({
     : profile.education?.[0]
 
   const cardContent = (
-    <div className={`profile-card ${hoverLinkedIn && profile.linkedin_url ? 'cursor-pointer hover:shadow-lg transition-shadow duration-200' : ''} ${className}`}>
+    <LiquidGlassCard className={`profile-card ${hoverLinkedIn && profile.linkedin_url ? 'cursor-pointer hover:shadow-lg transition-shadow duration-200' : ''} ${className}`}>
       {hoverLinkedIn && profile.linkedin_url && (
         <a
           href={profile.linkedin_url}
@@ -187,7 +188,7 @@ export default function AlumniProfileCard({
           </div>
         </div>
       ) : null}
-    </div>
+    </LiquidGlassCard>
   )
 
   return cardContent
