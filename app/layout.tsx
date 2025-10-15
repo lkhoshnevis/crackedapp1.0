@@ -1,12 +1,12 @@
 'use client'
 
 import type { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 import './globals.css'
 import RealtimeIndicator from '@/components/RealtimeIndicator'
 import { Waves } from '@/components/ui/waves-background'
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
+const outfit = Outfit({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className={outfit.className}>
         <div className="min-h-screen bg-black relative">
           <Waves
             lineColor="rgba(0, 119, 181, 0.15)"

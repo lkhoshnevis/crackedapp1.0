@@ -74,6 +74,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl w-full text-center">
+          {/* DVHS Logo */}
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="/dvhs-logo.png" 
+              alt="DVHS Logo" 
+              className="w-20 h-20 sm:w-24 sm:h-24 opacity-80 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+          
           <h1 className="text-5xl font-bold text-white mb-2">
             DVHS Alumni Network
           </h1>

@@ -42,11 +42,12 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - **Gradient Flow**: Blue (#3B82F6) → Purple (#A855F7) → Pink (#EC4899)
 - **UI Components**: Liquid glass/frosted glass aesthetic with backdrop blur effects
 - **Typography**: 
-  - Main font: Space Grotesk (modern, geometric sans-serif)
+  - Main font: Outfit (modern, geometric sans-serif similar to Audit Sans)
   - Vote profile font: Inter (clean, readable for profile data)
   - All text in white/light colors for maximum contrast
 - **Interactive Elements**: Fully rounded buttons and inputs with smooth transitions
-- **Vote Cards**: Transparent with 5% white background and medium blur for elegant presentation
+- **Vote Cards**: Ultra-transparent with 3% white background and medium blur for elegant presentation
+- **Branding**: DVHS logo displayed on homescreen with 80% opacity for subtle integration
 
 ### Directory Structure
 - `/app` - Next.js App Router pages
