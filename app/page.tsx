@@ -74,10 +74,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl w-full text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-2">
+          <h1 className="text-5xl font-bold text-white mb-2">
             DVHS Alumni Network
           </h1>
-          <p className="text-sm text-gray-500 mb-8">
+          <p className="text-sm text-gray-400 mb-8">
             limited to CS Majors
           </p>
           
@@ -86,7 +86,7 @@ export default function HomePage() {
             <SearchBar onSearch={handleSearch} />
           </div>
           
-          <p className="text-xl text-gray-600 mb-10">
+          <p className="text-xl text-gray-300 mb-10">
             Find people the fun way!
           </p>
 
@@ -112,11 +112,11 @@ export default function HomePage() {
       {hasSearched && (
         <div className="px-4 sm:px-6 lg:px-8 pb-12 max-w-4xl mx-auto w-full">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-semibold text-gray-900">
+            <h2 className="text-2xl font-semibold text-white">
               Search Results
             </h2>
             {isSearching && (
-              <div className="flex items-center text-gray-500">
+              <div className="flex items-center text-gray-400">
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-linkedin-blue mr-2"></div>
                 Searching...
               </div>
@@ -126,8 +126,8 @@ export default function HomePage() {
           {searchResults.length === 0 && !isSearching ? (
             <div className="text-center py-12">
               <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-500 text-lg">No alumni found matching your search.</p>
-              <p className="text-gray-400 text-sm mt-2">Try searching by name, company, school, or role.</p>
+              <p className="text-gray-400 text-lg">No alumni found matching your search.</p>
+              <p className="text-gray-500 text-sm mt-2">Try searching by name, company, school, or role.</p>
             </div>
           ) : (
             <div className="grid gap-6">
@@ -137,18 +137,18 @@ export default function HomePage() {
                     <ProfilePicture profile={profile} size="lg" />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2 mb-1">
-                        <h3 className="text-xl font-semibold text-gray-900">
+                        <h3 className="text-xl font-semibold text-white">
                           {profile.name}
                         </h3>
                         {profile.linkedin_url && (
                           <ExternalLink className="w-4 h-4 text-linkedin-blue flex-shrink-0" />
                         )}
                       </div>
-                      <p className="text-gray-600 mb-3">
+                      <p className="text-gray-300 mb-3">
                         {generateBio(profile)}
                       </p>
                       <div className="flex items-center space-x-4">
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-gray-400">
                           ELO: <span className="font-semibold text-linkedin-blue">{profile.elo}</span>
                         </span>
                         {profile.linkedin_url && (

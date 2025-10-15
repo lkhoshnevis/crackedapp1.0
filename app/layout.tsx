@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-50 relative">
+        <div className="min-h-screen bg-black relative">
           <Waves
             lineColor="rgba(0, 119, 181, 0.15)"
             backgroundColor="transparent"

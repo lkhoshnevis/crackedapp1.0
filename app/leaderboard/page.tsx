@@ -106,10 +106,10 @@ export default function LeaderboardPage() {
 
       <div className="max-w-4xl mx-auto pt-16">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-white mb-2">
             DVHS Alumni Leaderboard
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-300">
             Live ELO rankings of all DVHS alumni
           </p>
         </div>
@@ -129,11 +129,11 @@ export default function LeaderboardPage() {
 
       {/* Leaderboard */}
       <LiquidGlassCard className="overflow-hidden">
-        <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">
+        <div className="bg-white/5 px-6 py-4 border-b border-gray-700">
+          <h2 className="text-lg font-semibold text-white">
             {searchQuery ? `Search Results for "${searchQuery}"` : 'Top Rankings'}
           </h2>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-400">
             {searchQuery ? `${leaderboard.length} results` : `${leaderboard.length} alumni ranked`}
           </p>
         </div>
@@ -141,8 +141,8 @@ export default function LeaderboardPage() {
         {leaderboard.length === 0 ? (
           <div className="text-center py-12">
             <Trophy className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-500 text-lg">No alumni found.</p>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-gray-400 text-lg">No alumni found.</p>
+            <p className="text-gray-500 text-sm mt-2">
               {searchQuery ? 'Try a different search term.' : 'Check back later for rankings.'}
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function LeaderboardPage() {
                     {/* Name and ELO */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1 sm:gap-2">
-                        <h3 className="text-sm sm:text-lg font-semibold text-gray-900 break-words">
+                        <h3 className="text-sm sm:text-lg font-semibold text-white break-words">
                           {entry.name}
                         </h3>
                         {entry.linkedin_url && (
@@ -221,7 +221,7 @@ export default function LeaderboardPage() {
                     <div className="text-2xl font-bold text-linkedin-blue">
                       {entry.elo}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-400">
                       ELO Rating
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export default function LeaderboardPage() {
       </LiquidGlassCard>
 
         {/* Footer Info */}
-        <div className="mt-8 text-center text-sm text-gray-500">
+        <div className="mt-8 text-center text-sm text-gray-400">
           <p>
             Rankings are updated in real-time based on community votes.
             <br />

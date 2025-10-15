@@ -239,8 +239,15 @@ export function Waves({
       const ctx = ctxRef.current
       if (!ctx) return
       ctx.clearRect(0, 0, width, height)
+      
+      // Create gradient from blue to purple to pink
+      const gradient = ctx.createLinearGradient(0, 0, width, 0)
+      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)')    // blue
+      gradient.addColorStop(0.5, 'rgba(168, 85, 247, 0.4)')  // purple
+      gradient.addColorStop(1, 'rgba(236, 72, 153, 0.4)')    // pink
+      
       ctx.beginPath()
-      ctx.strokeStyle = lineColor
+      ctx.strokeStyle = gradient
       linesRef.current.forEach((points) => {
         let p1 = moved(points[0], false)
         ctx.moveTo(p1.x, p1.y)

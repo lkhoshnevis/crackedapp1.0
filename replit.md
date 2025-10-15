@@ -4,6 +4,13 @@
 A Next.js application for ranking DVHS alumni profiles using an ELO rating system. Users can vote between randomly selected alumni profiles to determine who's more "cracked", with live rankings updated in real-time.
 
 ## Recent Changes
+**October 15, 2025** - Premium Black & Gradient Design Update
+- Changed background from beige to pure black (#000000) for modern, premium look
+- Implemented dynamic gradient wave lines transitioning from blue → purple → pink
+- Updated all text colors to white/light shades for optimal contrast on black background
+- Rounded all button edges (rounded-full) for softer, more modern appearance
+- Applied liquid glass frosted effect to all UI components with enhanced shadow depth
+
 **October 14, 2025** - Migrated from Vercel to Replit
 - Configured Next.js to run on port 5000 with host 0.0.0.0 for Replit compatibility
 - Set up Supabase environment variables (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY)
@@ -25,6 +32,13 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - Alumni search functionality using Fuse.js
 - Admin panel for data management
 - CSV import for bulk alumni data
+
+### Design System
+- **Color Scheme**: Black background (#000000) with gradient accents
+- **Gradient Flow**: Blue (#3B82F6) → Purple (#A855F7) → Pink (#EC4899)
+- **UI Components**: Liquid glass/frosted glass aesthetic with backdrop blur effects
+- **Typography**: White/light text for maximum contrast and readability
+- **Interactive Elements**: Fully rounded buttons and inputs with smooth transitions
 
 ### Directory Structure
 - `/app` - Next.js App Router pages

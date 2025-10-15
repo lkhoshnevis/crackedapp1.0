@@ -115,7 +115,7 @@ export default function VotePage() {
 
       <div className="max-w-6xl mx-auto pt-16">
         <div className="text-center mb-8">
-          <p className="text-gray-600">
+          <p className="text-gray-300">
             Vote between these two DVHS alumni profiles
           </p>
         </div>
