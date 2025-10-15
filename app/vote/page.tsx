@@ -6,6 +6,7 @@ import AlumniProfileCard from '@/components/AlumniProfileCard'
 import { VotingService, VotingPair } from '@/lib/voting'
 import { ArrowRight, RotateCcw, Trophy, Home, TrendingUp } from 'lucide-react'
 import { LiquidButton } from '@/components/ui/liquid-glass-button'
+import { CoolLoader } from '@/components/ui/cool-loader'
 
 export default function VotePage() {
   const [votingPair, setVotingPair] = useState<VotingPair | null>(null)
@@ -64,8 +65,10 @@ export default function VotePage() {
     return (
       <div className="max-w-6xl mx-auto">
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-linkedin-blue mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading voting pair...</p>
+          <div className="flex justify-center mb-4">
+            <CoolLoader size="lg" />
+          </div>
+          <p className="text-gray-300">Loading voting pair...</p>
         </div>
       </div>
     )

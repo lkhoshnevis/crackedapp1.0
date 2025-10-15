@@ -8,6 +8,7 @@ import ProfilePicture from '@/components/ProfilePicture'
 import { Trophy, Users, TrendingUp, ExternalLink, Home } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { LiquidButton, LiquidGlassCard } from '@/components/ui/liquid-glass-button'
+import { CoolLoader } from '@/components/ui/cool-loader'
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState<AlumniProfile[]>([])
@@ -132,8 +133,8 @@ export default function HomePage() {
             </h2>
             {isSearching && (
               <div className="flex items-center text-gray-400">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-linkedin-blue mr-2"></div>
-                Searching...
+                <CoolLoader size="sm" />
+                <span className="ml-2">Searching...</span>
               </div>
             )}
           </div>

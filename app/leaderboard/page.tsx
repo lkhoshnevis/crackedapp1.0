@@ -8,6 +8,7 @@ import ProfilePicture from '@/components/ProfilePicture'
 import { AlumniProfile } from '@/lib/supabase'
 import { TrendingUp, TrendingDown, Trophy, Medal, Award, ExternalLink, Home } from 'lucide-react'
 import { LiquidButton, LiquidGlassCard } from '@/components/ui/liquid-glass-button'
+import { CoolLoader } from '@/components/ui/cool-loader'
 
 export default function LeaderboardPage() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
@@ -73,8 +74,10 @@ export default function LeaderboardPage() {
     return (
       <div className="max-w-4xl mx-auto">
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-linkedin-blue mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading leaderboard...</p>
+          <div className="flex justify-center mb-4">
+            <CoolLoader size="lg" />
+          </div>
+          <p className="text-gray-300">Loading leaderboard...</p>
         </div>
       </div>
     )
@@ -122,7 +125,7 @@ export default function LeaderboardPage() {
         />
         {searching && (
           <div className="text-center mt-4">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-linkedin-blue mx-auto"></div>
+            <CoolLoader size="sm" />
           </div>
         )}
       </div>
