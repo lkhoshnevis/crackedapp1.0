@@ -7,9 +7,13 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 **October 15, 2025** - Cool Loader & Mobile Scrolling Fix
 - Created custom triple-ring orbital loader with gradient animations (blue→purple→pink)
 - Replaced all basic spinners with cool loader across vote, leaderboard, and search pages
-- Fixed mobile scrolling issues by adding proper overflow settings (overflow-y: auto, overflow-x: hidden)
-- Added -webkit-overflow-scrolling: touch for smooth iOS scrolling
-- Added pointer-events-none to Waves background to prevent touch event blocking
+- Fixed mobile scrolling issues with comprehensive touch support:
+  - Set html/body height to 100% for proper viewport handling
+  - Added overflow-y: auto to body for vertical scrolling
+  - Added -webkit-overflow-scrolling: touch for smooth iOS scrolling
+  - Added touch-action: pan-y to explicitly enable vertical panning on mobile
+  - Added pointer-events-none to Waves background to prevent touch event blocking
+  - Removed tap highlight for cleaner touch interactions
 
 **October 15, 2025** - Premium Black & Gradient Design Update
 - Changed background from beige to pure black (#000000) for modern, premium look
