@@ -41,22 +41,22 @@ export default function AlumniProfileCard({
           title="View LinkedIn Profile"
         />
       )}
-      <div className="flex items-start space-x-4">
-        <div className={blurred ? 'blur-content' : ''}>
+      <div className="flex flex-col sm:flex-row items-start sm:space-x-4 space-y-3 sm:space-y-0">
+        <div className={`mx-auto sm:mx-0 ${blurred ? 'blur-content' : ''}`}>
           <ProfilePicture profile={profile} size="xl" />
         </div>
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 w-full">
           <div className="flex items-center justify-between">
-            <h3 className={`text-xl font-semibold text-gray-900 truncate ${blurred ? 'blur-content' : ''}`}>
+            <h3 className={`text-base sm:text-xl font-semibold text-gray-900 truncate ${blurred ? 'blur-content' : ''}`}>
               {profile.name}
             </h3>
             {showElo && (
-              <div className={`flex items-center space-x-2 ${blurred ? 'blur-content' : ''}`}>
-                <span className="text-lg font-bold text-linkedin-blue">
+              <div className={`flex items-center space-x-1 sm:space-x-2 ${blurred ? 'blur-content' : ''}`}>
+                <span className="text-sm sm:text-lg font-bold text-linkedin-blue">
                   {profile.elo}
                 </span>
                 {eloChange !== undefined && eloChange !== 0 && (
-                  <span className={`text-sm ${eloChange > 0 ? 'elo-change-positive' : 'elo-change-negative'}`}>
+                  <span className={`text-xs sm:text-sm ${eloChange > 0 ? 'elo-change-positive' : 'elo-change-negative'}`}>
                     {eloChange > 0 ? '+' : ''}{eloChange}
                   </span>
                 )}
@@ -65,9 +65,9 @@ export default function AlumniProfileCard({
           </div>
 
           {primaryExperience && (
-            <div className="mt-2 flex items-center text-gray-600">
-              <Building className="w-4 h-4 mr-1" />
-              <span className="text-sm">
+            <div className="mt-2 flex items-start text-gray-600">
+              <Building className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
+              <span className="text-xs sm:text-sm line-clamp-2">
                 {primaryExperience.role} at {primaryExperience.company}
               </span>
             </div>
@@ -75,21 +75,15 @@ export default function AlumniProfileCard({
 
           {profile.location && (
             <div className="mt-1 flex items-center text-gray-500">
-              <MapPin className="w-4 h-4 mr-1" />
-              <span className="text-sm">{profile.location}</span>
-            </div>
-          )}
-
-          {profile.dvhs_class_of && (
-            <div className="mt-1 flex items-center text-linkedin-blue">
-              <span className="text-sm font-medium">DVHS Class of {profile.dvhs_class_of}</span>
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
+              <span className="text-xs sm:text-sm truncate">{profile.location}</span>
             </div>
           )}
 
           {primaryEducation && (
-            <div className="mt-2 flex items-center text-gray-600">
-              <GraduationCap className="w-4 h-4 mr-1" />
-              <span className="text-sm">
+            <div className="mt-2 flex items-start text-gray-600">
+              <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
+              <span className="text-xs sm:text-sm line-clamp-2">
                 {primaryEducation.degree} at {primaryEducation.school}
               </span>
             </div>
@@ -101,10 +95,10 @@ export default function AlumniProfileCard({
                 href={profile.linkedin_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-linkedin-blue hover:text-linkedin-dark text-sm font-medium"
+                className="inline-flex items-center text-linkedin-blue hover:text-linkedin-dark text-xs sm:text-sm font-medium"
               >
-                <ExternalLink className="w-4 h-4 mr-1" />
-                View LinkedIn Profile
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                View LinkedIn
               </a>
             </div>
           )}
@@ -113,9 +107,9 @@ export default function AlumniProfileCard({
 
       {/* Experience Section */}
       {(profile.experiences && profile.experiences.length > 0) || profile.experience_1_role ? (
-        <div className="mt-6">
-          <h4 className="text-sm font-semibold text-gray-900 mb-3">Experience</h4>
-          <div className="space-y-3">
+        <div className="mt-4 sm:mt-6">
+          <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 sm:mb-3">Experience</h4>
+          <div className="space-y-2 sm:space-y-3">
             {/* Show structured experience data first */}
             {[
               { role: profile.experience_1_role, company: profile.experience_1_company, logo: profile.experience_1_logo },
@@ -123,29 +117,29 @@ export default function AlumniProfileCard({
               { role: profile.experience_3_role, company: profile.experience_3_company, logo: profile.experience_3_logo },
               { role: profile.experience_4_role, company: profile.experience_4_company, logo: profile.experience_4_logo }
             ].filter(exp => exp.role && exp.company).map((exp, index) => (
-              <div key={index} className="flex items-start space-x-3">
+              <div key={index} className="flex items-start space-x-2 sm:space-x-3">
                 {exp.logo ? (
-                  <img src={exp.logo} alt={exp.company} className="w-8 h-8 rounded object-cover flex-shrink-0" />
+                  <img src={exp.logo} alt={exp.company} className="w-6 h-6 sm:w-8 sm:h-8 rounded object-cover flex-shrink-0" />
                 ) : (
-                  <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
-                    <Building className="w-4 h-4 text-gray-600" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                    <Building className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{exp.role}</p>
-                  <p className="text-sm text-gray-600">{exp.company}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{exp.role}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">{exp.company}</p>
                 </div>
               </div>
             ))}
             {/* Fallback to experiences array if no structured data */}
             {!profile.experience_1_role && profile.experiences && profile.experiences.map((exp, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
-                  <Building className="w-4 h-4 text-gray-600" />
+              <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                  <Building className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{exp.role}</p>
-                  <p className="text-sm text-gray-600">{exp.company}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{exp.role}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">{exp.company}</p>
                 </div>
               </div>
             ))}
@@ -155,38 +149,38 @@ export default function AlumniProfileCard({
 
       {/* Education Section */}
       {(profile.education && profile.education.length > 0) || profile.college_1_name ? (
-        <div className="mt-6">
-          <h4 className="text-sm font-semibold text-gray-900 mb-3">Education</h4>
-          <div className="space-y-3">
+        <div className="mt-4 sm:mt-6">
+          <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 sm:mb-3">Education</h4>
+          <div className="space-y-2 sm:space-y-3">
             {/* Show structured education data first */}
             {[
               { school: profile.college_1_name, degree: profile.college_1_degree, logo: profile.college_1_logo },
               { school: profile.college_2_name, degree: profile.college_2_degree, logo: profile.college_2_logo },
               { school: profile.college_3_name, degree: profile.college_3_degree, logo: profile.college_3_logo }
             ].filter(edu => edu.school && edu.degree).map((edu, index) => (
-              <div key={index} className="flex items-start space-x-3">
+              <div key={index} className="flex items-start space-x-2 sm:space-x-3">
                 {edu.logo ? (
-                  <img src={edu.logo} alt={edu.school} className="w-8 h-8 rounded object-cover flex-shrink-0" />
+                  <img src={edu.logo} alt={edu.school} className="w-6 h-6 sm:w-8 sm:h-8 rounded object-cover flex-shrink-0" />
                 ) : (
-                  <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-4 h-4 text-gray-600" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{edu.school}</p>
-                  <p className="text-sm text-gray-600">{edu.degree}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{edu.school}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">{edu.degree}</p>
                 </div>
               </div>
             ))}
             {/* Fallback to education array if no structured data */}
             {!profile.college_1_name && profile.education && profile.education.map((edu, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-4 h-4 text-gray-600" />
+              <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{edu.school}</p>
-                  <p className="text-sm text-gray-600">{edu.degree}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{edu.school}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">{edu.degree}</p>
                 </div>
               </div>
             ))}
