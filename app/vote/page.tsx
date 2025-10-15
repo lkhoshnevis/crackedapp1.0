@@ -125,7 +125,7 @@ export default function VotePage() {
           <div className="grid grid-cols-2 gap-4 sm:gap-8 w-full max-w-5xl">
             {/* Profile 1 */}
             <div className="relative">
-              <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
+              <div className={`${!voted ? 'pointer-events-none' : ''} transition-all duration-200`}>
                 <AlumniProfileCard
                   profile={votingPair.profile1}
                   showElo={voted}
@@ -138,14 +138,14 @@ export default function VotePage() {
               {!voted && (
                 <button
                   onClick={() => handleVote(votingPair.profile1.id)}
-                  className="absolute inset-0 w-full h-full z-20 bg-transparent hover:bg-white/10 transition-colors duration-200 rounded-lg"
+                  className="absolute inset-0 w-full h-full z-50 bg-transparent cursor-pointer rounded-lg"
                 />
               )}
             </div>
 
             {/* Profile 2 */}
             <div className="relative">
-              <div className={`${!voted ? 'cursor-pointer hover:shadow-lg' : ''} transition-all duration-200`}>
+              <div className={`${!voted ? 'pointer-events-none' : ''} transition-all duration-200`}>
                 <AlumniProfileCard
                   profile={votingPair.profile2}
                   showElo={voted}
@@ -158,7 +158,7 @@ export default function VotePage() {
               {!voted && (
                 <button
                   onClick={() => handleVote(votingPair.profile2.id)}
-                  className="absolute inset-0 w-full h-full z-20 bg-transparent hover:bg-white/10 transition-colors duration-200 rounded-lg"
+                  className="absolute inset-0 w-full h-full z-50 bg-transparent cursor-pointer rounded-lg"
                 />
               )}
             </div>
