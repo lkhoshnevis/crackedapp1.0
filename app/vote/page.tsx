@@ -138,7 +138,7 @@ export default function VotePage() {
               {!voted && (
                 <button
                   onClick={() => handleVote(votingPair.profile1.id)}
-                  className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                  className="absolute inset-0 w-full h-full z-20 bg-transparent hover:bg-white/10 transition-colors duration-200 rounded-lg"
                 />
               )}
             </div>
@@ -158,7 +158,7 @@ export default function VotePage() {
               {!voted && (
                 <button
                   onClick={() => handleVote(votingPair.profile2.id)}
-                  className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                  className="absolute inset-0 w-full h-full z-20 bg-transparent hover:bg-white/10 transition-colors duration-200 rounded-lg"
                 />
               )}
             </div>
