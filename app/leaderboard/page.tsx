@@ -6,7 +6,7 @@ import { LeaderboardEntry } from '@/lib/types'
 import SearchBar from '@/components/SearchBar'
 import ProfilePicture from '@/components/ProfilePicture'
 import { AlumniProfile } from '@/lib/supabase'
-import { TrendingUp, TrendingDown, Trophy, Medal, Award, ExternalLink } from 'lucide-react'
+import { TrendingUp, TrendingDown, Trophy, Medal, Award, ExternalLink, Home } from 'lucide-react'
 
 export default function LeaderboardPage() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
@@ -80,15 +80,41 @@ export default function LeaderboardPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          DVHS Alumni Leaderboard
-        </h1>
-        <p className="text-gray-600">
-          Live ELO rankings of all DVHS alumni
-        </p>
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      {/* Navigation Buttons */}
+      <div className="absolute top-6 left-6 flex space-x-3">
+        <a
+          href="/"
+          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-linkedin-blue hover:text-linkedin-dark font-medium"
+        >
+          <Home className="w-5 h-5 mr-2" />
+          Home
+        </a>
+        <a
+          href="/vote"
+          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-600 hover:text-linkedin-blue font-medium"
+        >
+          <Trophy className="w-5 h-5 mr-2" />
+          Vote
+        </a>
+        <a
+          href="/leaderboard"
+          className="inline-flex items-center px-4 py-2 bg-linkedin-blue/10 backdrop-blur-sm rounded-lg shadow-sm text-linkedin-blue font-medium"
+        >
+          <TrendingUp className="w-5 h-5 mr-2" />
+          Leaderboard
+        </a>
       </div>
+
+      <div className="max-w-4xl mx-auto pt-16">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            DVHS Alumni Leaderboard
+          </h1>
+          <p className="text-gray-600">
+            Live ELO rankings of all DVHS alumni
+          </p>
+        </div>
 
       {/* Search Bar */}
       <div className="mb-8">
@@ -208,13 +234,14 @@ export default function LeaderboardPage() {
         )}
       </div>
 
-      {/* Footer Info */}
-      <div className="mt-8 text-center text-sm text-gray-500">
-        <p>
-          Rankings are updated in real-time based on community votes.
-          <br />
-          ELO ratings start at 2000 for new profiles.
-        </p>
+        {/* Footer Info */}
+        <div className="mt-8 text-center text-sm text-gray-500">
+          <p>
+            Rankings are updated in real-time based on community votes.
+            <br />
+            ELO ratings start at 2000 for new profiles.
+          </p>
+        </div>
       </div>
     </div>
   )

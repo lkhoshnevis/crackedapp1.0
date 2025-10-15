@@ -5,9 +5,8 @@ import { AlumniProfile } from '@/lib/supabase'
 import SearchBar from '@/components/SearchBar'
 import AlumniProfileCard from '@/components/AlumniProfileCard'
 import ProfilePicture from '@/components/ProfilePicture'
-import { Trophy, Users, TrendingUp, ExternalLink } from 'lucide-react'
+import { Trophy, Users, TrendingUp, ExternalLink, Home } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
-import { Waves } from '@/components/ui/waves-background'
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState<AlumniProfile[]>([])
@@ -60,58 +59,60 @@ export default function HomePage() {
   }
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <Waves
-        lineColor="rgba(0, 119, 181, 0.2)"
-        backgroundColor="transparent"
-        waveSpeedX={0.02}
-        waveSpeedY={0.01}
-        waveAmpX={40}
-        waveAmpY={20}
-        friction={0.9}
-        tension={0.01}
-        maxCursorMove={120}
-        xGap={12}
-        yGap={36}
-      />
-      
-      {/* Hero Section */}
-      <div className="relative z-10 text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          DVHS Alumni Network
-        </h1>
-        
-        {/* Search Bar */}
-        <div className="mb-4">
-          <SearchBar onSearch={handleSearch} />
-        </div>
-        
-        <p className="text-xl text-gray-600 mb-8">
-          Find people the fun way!
-        </p>
+    <div className="min-h-screen flex flex-col">
+      {/* Home Button */}
+      <div className="absolute top-6 left-6">
+        <a
+          href="/"
+          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-linkedin-blue hover:text-linkedin-dark font-medium"
+        >
+          <Home className="w-5 h-5 mr-2" />
+          Home
+        </a>
+      </div>
 
-        {/* Action Buttons */}
-        <div className="flex justify-center space-x-4">
-          <a
-            href="/vote"
-            className="linkedin-button inline-flex items-center px-8 py-3 text-lg"
-          >
-            <Trophy className="w-5 h-5 mr-2" />
-            Start Voting
-          </a>
-          <a
-            href="/leaderboard"
-            className="linkedin-button-outline inline-flex items-center px-8 py-3 text-lg"
-          >
-            <TrendingUp className="w-5 h-5 mr-2" />
-            View Leaderboard
-          </a>
+      {/* Hero Section */}
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl w-full text-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-2">
+            DVHS Alumni Network
+          </h1>
+          <p className="text-sm text-gray-500 mb-8">
+            limited to CS Majors
+          </p>
+          
+          {/* Search Bar */}
+          <div className="mb-6">
+            <SearchBar onSearch={handleSearch} />
+          </div>
+          
+          <p className="text-xl text-gray-600 mb-10">
+            Find people the fun way!
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex justify-center space-x-4">
+            <a
+              href="/vote"
+              className="linkedin-button inline-flex items-center px-8 py-3 text-lg"
+            >
+              <Trophy className="w-5 h-5 mr-2" />
+              Start Voting
+            </a>
+            <a
+              href="/leaderboard"
+              className="linkedin-button-outline inline-flex items-center px-8 py-3 text-lg"
+            >
+              <TrendingUp className="w-5 h-5 mr-2" />
+              View Leaderboard
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Search Results */}
       {hasSearched && (
-        <div className="relative z-10 mb-8">
+        <div className="px-4 sm:px-6 lg:px-8 pb-12 max-w-4xl mx-auto w-full">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-semibold text-gray-900">
               Search Results

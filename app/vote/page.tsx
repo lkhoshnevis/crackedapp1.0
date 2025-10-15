@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { AlumniProfile } from '@/lib/supabase'
 import AlumniProfileCard from '@/components/AlumniProfileCard'
 import { VotingService, VotingPair } from '@/lib/voting'
-import { ArrowRight, RotateCcw, Trophy } from 'lucide-react'
+import { ArrowRight, RotateCcw, Trophy, Home, TrendingUp } from 'lucide-react'
 
 export default function VotePage() {
   const [votingPair, setVotingPair] = useState<VotingPair | null>(null)
@@ -89,12 +89,38 @@ export default function VotePage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-8">
-        <p className="text-gray-600">
-          Vote between these two DVHS alumni profiles
-        </p>
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      {/* Navigation Buttons */}
+      <div className="absolute top-6 left-6 flex space-x-3">
+        <a
+          href="/"
+          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-linkedin-blue hover:text-linkedin-dark font-medium"
+        >
+          <Home className="w-5 h-5 mr-2" />
+          Home
+        </a>
+        <a
+          href="/vote"
+          className="inline-flex items-center px-4 py-2 bg-linkedin-blue/10 backdrop-blur-sm rounded-lg shadow-sm text-linkedin-blue font-medium"
+        >
+          <Trophy className="w-5 h-5 mr-2" />
+          Vote
+        </a>
+        <a
+          href="/leaderboard"
+          className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-600 hover:text-linkedin-blue font-medium"
+        >
+          <TrendingUp className="w-5 h-5 mr-2" />
+          Leaderboard
+        </a>
       </div>
+
+      <div className="max-w-6xl mx-auto pt-16">
+        <div className="text-center mb-8">
+          <p className="text-gray-600">
+            Vote between these two DVHS alumni profiles
+          </p>
+        </div>
 
       <div className="relative">
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
@@ -183,6 +209,7 @@ export default function VotePage() {
           </p>
         </div>
       )}
+      </div>
     </div>
   )
 }
