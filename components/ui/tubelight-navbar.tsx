@@ -3,18 +3,23 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { LucideIcon } from "lucide-react"
+import { Home, Trophy } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {
   name: string
   url: string
-  icon: LucideIcon
+  iconName: string
 }
 
 interface NavBarProps {
   items: NavItem[]
   className?: string
+}
+
+const iconMap: Record<string, any> = {
+  home: Home,
+  trophy: Trophy,
 }
 
 export function NavBar({ items, className }: NavBarProps) {
@@ -40,7 +45,7 @@ export function NavBar({ items, className }: NavBarProps) {
     >
       <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
-          const Icon = item.icon
+          const Icon = item.iconName ? iconMap[item.iconName.toLowerCase()] : null
           const isActive = activeTab === item.name
 
           return (
@@ -50,18 +55,18 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary",
+                "text-gray-300 hover:text-blue-400",
+                isActive && "bg-white/10 text-blue-400",
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
               <span className="md:hidden">
-                <Icon size={18} strokeWidth={2.5} />
+                {Icon && <Icon size={18} strokeWidth={2.5} />}
               </span>
               {isActive && (
                 <motion.div
                   layoutId="lamp"
-                  className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+                  className="absolute inset-0 w-full bg-blue-500/10 rounded-full -z-10"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -69,10 +74,10 @@ export function NavBar({ items, className }: NavBarProps) {
                     damping: 30,
                   }}
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-blue-500 rounded-t-full">
+                    <div className="absolute w-12 h-6 bg-blue-500/20 rounded-full blur-md -top-2 -left-2" />
+                    <div className="absolute w-8 h-6 bg-blue-500/20 rounded-full blur-md -top-1" />
+                    <div className="absolute w-4 h-4 bg-blue-500/20 rounded-full blur-sm top-0 left-2" />
                   </div>
                 </motion.div>
               )}

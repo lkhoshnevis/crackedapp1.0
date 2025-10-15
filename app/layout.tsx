@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import RealtimeIndicator from '@/components/RealtimeIndicator'
-import { NavBar } from '@/components/ui/tubelight-navbar'
+import { ClientNav } from '@/components/ClientNav'
 import { Squares } from '@/components/ui/squares-background'
-import { Home, Trophy } from 'lucide-react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,11 +12,6 @@ export const metadata: Metadata = {
   description: 'Vote between DVHS alumni profiles to determine who\'s more cracked. See live ELO rankings and compete with your fellow Wildcats!',
   keywords: 'DVHS, Dougherty Valley High School, alumni, ranking, voting, ELO',
 }
-
-const navItems = [
-  { name: 'Home', url: '/', icon: Home },
-  { name: 'Leaderboard', url: '/leaderboard', icon: Trophy },
-]
 
 export default function RootLayout({
   children,
@@ -37,7 +31,7 @@ export default function RootLayout({
               hoverFillColor="#222"
             />
           </div>
-          <NavBar items={navItems} />
+          <ClientNav />
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-20 pb-24 relative z-10">
             {children}
           </main>

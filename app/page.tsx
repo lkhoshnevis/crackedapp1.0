@@ -66,7 +66,7 @@ export default function HomePage() {
         {/* Logo */}
         <div className="flex justify-center mb-6">
           <img 
-            src="/attached_assets/Gemini_Generated_Image_1i0akd1i0akd1i0a_1760504959265.png" 
+            src="/dvhs-logo.png" 
             alt="DVHS Wildcats Logo" 
             className="w-48 h-48 object-contain"
           />
