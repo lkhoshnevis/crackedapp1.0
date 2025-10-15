@@ -87,7 +87,7 @@ export default function HomePage() {
             <img 
               src="/dv-logo.png" 
               alt="DV" 
-              className="h-16 sm:h-20 w-auto mr-1"
+              className="h-16 sm:h-20 w-auto -mr-1"
             />
             <span className="text-[#5BA3D4]">HS</span>
             <span className="ml-2">Alumni Network</span>
