@@ -4,6 +4,9 @@ import { AlumniProfile } from '@/lib/supabase'
 import ProfilePicture from './ProfilePicture'
 import { ExternalLink, MapPin, Building, GraduationCap } from 'lucide-react'
 import { LiquidGlassCard } from '@/components/ui/liquid-glass-button'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 interface AlumniProfileCardProps {
   profile: AlumniProfile
@@ -32,7 +35,7 @@ export default function AlumniProfileCard({
     : profile.education?.[0]
 
   const cardContent = (
-    <LiquidGlassCard className={`profile-card ${hoverLinkedIn && profile.linkedin_url ? 'cursor-pointer hover:shadow-lg transition-shadow duration-200' : ''} ${className}`}>
+    <LiquidGlassCard transparent className={`profile-card ${hoverLinkedIn && profile.linkedin_url ? 'cursor-pointer hover:shadow-lg transition-shadow duration-200' : ''} ${className} ${inter.className}`}>
       {hoverLinkedIn && profile.linkedin_url && (
         <a
           href={profile.linkedin_url}
@@ -48,12 +51,12 @@ export default function AlumniProfileCard({
         </div>
         <div className="flex-1 min-w-0 w-full">
           <div className="flex items-start justify-between gap-2">
-            <h3 className={`text-sm sm:text-xl font-semibold text-white break-words ${blurred ? 'blur-content' : ''}`}>
+            <h3 className={`text-sm sm:text-xl font-semibold break-words ${blurred ? 'blur-content text-gray-200' : 'text-white'}`}>
               {profile.name}
             </h3>
             {showElo && (
               <div className={`flex items-center space-x-1 flex-shrink-0 ${blurred ? 'blur-content' : ''}`}>
-                <span className="text-xs sm:text-lg font-bold text-linkedin-blue">
+                <span className="text-xs sm:text-lg font-bold text-white">
                   {profile.elo}
                 </span>
                 {eloChange !== undefined && eloChange !== 0 && (
@@ -66,25 +69,25 @@ export default function AlumniProfileCard({
           </div>
 
           {primaryExperience && (
-            <div className="mt-1 sm:mt-2 flex items-start text-gray-300">
+            <div className={`mt-1 sm:mt-2 flex items-start ${blurred ? 'text-gray-200' : 'text-gray-300'}`}>
               <Building className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
-              <span className="text-[10px] leading-tight sm:text-sm break-words">
+              <span className={`text-[10px] leading-tight sm:text-sm break-words ${blurred ? 'blur-content' : ''}`}>
                 {primaryExperience.role} at {primaryExperience.company}
               </span>
             </div>
           )}
 
           {profile.location && (
-            <div className="mt-1 flex items-start text-gray-400">
+            <div className={`mt-1 flex items-start ${blurred ? 'text-gray-200' : 'text-gray-400'}`}>
               <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
-              <span className="text-[10px] leading-tight sm:text-sm break-words">{profile.location}</span>
+              <span className={`text-[10px] leading-tight sm:text-sm break-words ${blurred ? 'blur-content' : ''}`}>{profile.location}</span>
             </div>
           )}
 
           {primaryEducation && (
-            <div className="mt-1 sm:mt-2 flex items-start text-gray-300">
+            <div className={`mt-1 sm:mt-2 flex items-start ${blurred ? 'text-gray-200' : 'text-gray-300'}`}>
               <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
-              <span className="text-[10px] leading-tight sm:text-sm break-words">
+              <span className={`text-[10px] leading-tight sm:text-sm break-words ${blurred ? 'blur-content' : ''}`}>
                 {primaryEducation.degree} at {primaryEducation.school}
               </span>
             </div>
@@ -96,7 +99,7 @@ export default function AlumniProfileCard({
                 href={profile.linkedin_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-linkedin-blue hover:text-linkedin-dark text-xs sm:text-sm font-medium"
+                className="inline-flex items-center text-white hover:text-gray-300 text-xs sm:text-sm font-medium"
               >
                 <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                 View LinkedIn

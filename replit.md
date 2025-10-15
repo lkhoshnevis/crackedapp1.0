@@ -10,6 +10,10 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - Updated all text colors to white/light shades for optimal contrast on black background
 - Rounded all button edges (rounded-full) for softer, more modern appearance
 - Applied liquid glass frosted effect to all UI components with enhanced shadow depth
+- Changed main site font to Space Grotesk for modern typography (vote profiles keep Inter)
+- Made vote profile cards highly transparent with blur effect for elegant presentation
+- Changed all button text from blue to white for better readability
+- Increased navigation button rounding for sleeker appearance
 
 **October 14, 2025** - Migrated from Vercel to Replit
 - Configured Next.js to run on port 5000 with host 0.0.0.0 for Replit compatibility
@@ -37,8 +41,12 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - **Color Scheme**: Black background (#000000) with gradient accents
 - **Gradient Flow**: Blue (#3B82F6) → Purple (#A855F7) → Pink (#EC4899)
 - **UI Components**: Liquid glass/frosted glass aesthetic with backdrop blur effects
-- **Typography**: White/light text for maximum contrast and readability
+- **Typography**: 
+  - Main font: Space Grotesk (modern, geometric sans-serif)
+  - Vote profile font: Inter (clean, readable for profile data)
+  - All text in white/light colors for maximum contrast
 - **Interactive Elements**: Fully rounded buttons and inputs with smooth transitions
+- **Vote Cards**: Transparent with 5% white background and medium blur for elegant presentation
 
 ### Directory Structure
 - `/app` - Next.js App Router pages

@@ -11,9 +11,9 @@ const liquidbuttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-transparent hover:scale-105 duration-300 transition text-linkedin-blue",
+        default: "bg-transparent hover:scale-105 duration-300 transition text-white",
         primary: "bg-transparent hover:scale-105 duration-300 transition text-white",
-        outline: "bg-transparent hover:scale-105 duration-300 transition text-linkedin-blue",
+        outline: "bg-transparent hover:scale-105 duration-300 transition text-white",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -102,13 +102,15 @@ function GlassFilter() {
   );
 }
 
-export function LiquidGlassCard({ children, className }: { children: React.ReactNode, className?: string }) {
+export function LiquidGlassCard({ children, className, transparent = false }: { children: React.ReactNode, className?: string, transparent?: boolean }) {
   return (
     <div className={cn("relative", className)}>
-      <div className="absolute top-0 left-0 z-0 h-full w-full rounded-2xl 
-          shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] 
-      transition-all 
-      dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]" />
+      <div className={cn(
+        "absolute top-0 left-0 z-0 h-full w-full rounded-2xl transition-all",
+        transparent 
+          ? "bg-white/5 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(255,255,255,0.1)]" 
+          : "shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"
+      )} />
       <div
         className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-2xl"
         style={{ backdropFilter: 'url("#container-glass")' }}

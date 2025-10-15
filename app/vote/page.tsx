@@ -93,20 +93,20 @@ export default function VotePage() {
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       {/* Navigation Buttons */}
       <div className="absolute top-6 left-6 flex space-x-3">
-        <LiquidButton asChild size="default">
-          <a href="/" className="inline-flex items-center font-medium">
+        <LiquidButton asChild size="lg">
+          <a href="/" className="inline-flex items-center font-medium rounded-full">
             <Home className="w-5 h-5 mr-2" />
             Home
           </a>
         </LiquidButton>
-        <LiquidButton asChild size="default" variant="primary">
-          <a href="/vote" className="inline-flex items-center font-medium">
+        <LiquidButton asChild size="lg" variant="primary">
+          <a href="/vote" className="inline-flex items-center font-medium rounded-full">
             <Trophy className="w-5 h-5 mr-2" />
             Vote
           </a>
         </LiquidButton>
-        <LiquidButton asChild size="default">
-          <a href="/leaderboard" className="inline-flex items-center font-medium">
+        <LiquidButton asChild size="lg">
+          <a href="/leaderboard" className="inline-flex items-center font-medium rounded-full">
             <TrendingUp className="w-5 h-5 mr-2" />
             Leaderboard
           </a>

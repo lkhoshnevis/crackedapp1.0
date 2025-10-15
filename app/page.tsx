@@ -63,8 +63,8 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       {/* Home Button */}
       <div className="absolute top-6 left-6">
-        <LiquidButton asChild size="default">
-          <a href="/" className="inline-flex items-center font-medium">
+        <LiquidButton asChild size="lg">
+          <a href="/" className="inline-flex items-center font-medium rounded-full">
             <Home className="w-5 h-5 mr-2" />
             Home
           </a>
@@ -141,7 +141,7 @@ export default function HomePage() {
                           {profile.name}
                         </h3>
                         {profile.linkedin_url && (
-                          <ExternalLink className="w-4 h-4 text-linkedin-blue flex-shrink-0" />
+                          <ExternalLink className="w-4 h-4 text-white flex-shrink-0" />
                         )}
                       </div>
                       <p className="text-gray-300 mb-3">
@@ -149,14 +149,14 @@ export default function HomePage() {
                       </p>
                       <div className="flex items-center space-x-4">
                         <span className="text-sm text-gray-400">
-                          ELO: <span className="font-semibold text-linkedin-blue">{profile.elo}</span>
+                          ELO: <span className="font-semibold text-white">{profile.elo}</span>
                         </span>
                         {profile.linkedin_url && (
                           <a
                             href={profile.linkedin_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-linkedin-blue hover:text-linkedin-dark text-sm font-medium"
+                            className="text-white hover:text-gray-300 text-sm font-medium"
                           >
                             View LinkedIn →
                           </a>
