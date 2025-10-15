@@ -83,8 +83,13 @@ export default function HomePage() {
             />
           </div>
           
-          <h1 className="text-5xl font-bold text-white mb-2">
-            DVHS Alumni Network
+          <h1 className="text-5xl font-bold text-white mb-2 flex items-center justify-center">
+            <img 
+              src="/dv-logo.png" 
+              alt="DV" 
+              className="h-12 sm:h-16 w-auto mr-1"
+            />
+            <span>HS Alumni Network</span>
           </h1>
           <p className="text-sm text-gray-400 mb-8">
             limited to CS Majors
