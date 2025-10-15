@@ -63,16 +63,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          DVHS Alumni Ranking
+          DVHS Alumni Network
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Vote between alumni profiles to determine who&apos;s more &quot;cracked&quot; and see live ELO rankings!
-        </p>
         
         {/* Search Bar */}
-        <div className="mb-8">
+        <div className="mb-4">
           <SearchBar onSearch={handleSearch} />
         </div>
+        
+        <p className="text-xl text-gray-600 mb-8">
+          Find people the fun way!
+        </p>
 
         {/* Action Buttons */}
         <div className="flex justify-center space-x-4">

@@ -23,17 +23,20 @@ export default function RootLayout({
           <header className="bg-white shadow-sm border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16">
-                <div className="flex items-center">
+                <div className="flex flex-col">
                   <h1 className="text-2xl font-bold text-linkedin-blue">
-                    DVHS Alumni Ranking
+                    DVHS Alumni Network
                   </h1>
-                  <span className="ml-2 text-sm text-gray-500">
-                    Who&apos;s More Cracked?
+                  <span className="text-xs text-gray-500">
+                    limited to CS Majors
                   </span>
                 </div>
                 <nav className="flex space-x-4">
                   <a href="/" className="text-linkedin-blue hover:text-linkedin-dark font-medium">
                     Home
+                  </a>
+                  <a href="/vote" className="text-gray-600 hover:text-linkedin-blue font-medium">
+                    Vote
                   </a>
                   <a href="/leaderboard" className="text-gray-600 hover:text-linkedin-blue font-medium">
                     Leaderboard

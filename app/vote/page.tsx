@@ -91,9 +91,6 @@ export default function VotePage() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Who&apos;s More Cracked?
-        </h1>
         <p className="text-gray-600">
           Vote between these two DVHS alumni profiles
         </p>
