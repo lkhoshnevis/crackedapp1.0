@@ -7,6 +7,7 @@ import AlumniProfileCard from '@/components/AlumniProfileCard'
 import ProfilePicture from '@/components/ProfilePicture'
 import { Trophy, Users, TrendingUp, ExternalLink } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
+import { Waves } from '@/components/ui/waves-background'
 
 export default function HomePage() {
   const [searchResults, setSearchResults] = useState<AlumniProfile[]>([])
@@ -59,9 +60,23 @@ export default function HomePage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="relative max-w-4xl mx-auto">
+      <Waves
+        lineColor="rgba(0, 119, 181, 0.2)"
+        backgroundColor="transparent"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.9}
+        tension={0.01}
+        maxCursorMove={120}
+        xGap={12}
+        yGap={36}
+      />
+      
       {/* Hero Section */}
-      <div className="text-center mb-12">
+      <div className="relative z-10 text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           DVHS Alumni Network
         </h1>
@@ -96,7 +111,7 @@ export default function HomePage() {
 
       {/* Search Results */}
       {hasSearched && (
-        <div className="mb-8">
+        <div className="relative z-10 mb-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-semibold text-gray-900">
               Search Results
