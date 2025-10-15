@@ -5,6 +5,7 @@ import { AlumniProfile } from '@/lib/supabase'
 import AlumniProfileCard from '@/components/AlumniProfileCard'
 import { VotingService, VotingPair } from '@/lib/voting'
 import { ArrowRight, RotateCcw, Trophy } from 'lucide-react'
+import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 
 export default function VotePage() {
   const [votingPair, setVotingPair] = useState<VotingPair | null>(null)
@@ -63,8 +64,8 @@ export default function VotePage() {
     return (
       <div className="max-w-6xl mx-auto">
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-linkedin-blue mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading voting pair...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p className="text-gray-300">Loading voting pair...</p>
         </div>
       </div>
     )
@@ -74,15 +75,17 @@ export default function VotePage() {
     return (
       <div className="max-w-6xl mx-auto">
         <div className="text-center py-12">
-          <Trophy className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">No Profiles Available</h2>
-          <p className="text-gray-600 mb-6">There aren't enough alumni profiles to create a voting pair.</p>
-          <button
+          <Trophy className="w-12 h-12 text-gray-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-semibold text-white mb-2">No Profiles Available</h2>
+          <p className="text-gray-300 mb-6">There aren't enough alumni profiles to create a voting pair.</p>
+          <HoverBorderGradient
+            as="button"
             onClick={loadNewPair}
-            className="linkedin-button"
+            containerClassName="rounded-full"
+            className="bg-black text-white flex items-center space-x-2"
           >
-            Try Again
-          </button>
+            <span>Try Again</span>
+          </HoverBorderGradient>
         </div>
       </div>
     )
@@ -91,10 +94,10 @@ export default function VotePage() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <h1 className="text-3xl font-bold text-white mb-2">
           Who&apos;s More Cracked?
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-300">
           Vote between these two DVHS alumni profiles
         </p>
       </div>
@@ -116,7 +119,7 @@ export default function VotePage() {
             {!voted && (
               <button
                 onClick={() => handleVote(votingPair.profile1.id)}
-                className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                className="absolute inset-0 w-full h-full bg-transparent hover:bg-blue-500 hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
               />
             )}
           </div>
@@ -136,7 +139,7 @@ export default function VotePage() {
             {!voted && (
               <button
                 onClick={() => handleVote(votingPair.profile2.id)}
-                className="absolute inset-0 w-full h-full bg-transparent hover:bg-linkedin-blue hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
+                className="absolute inset-0 w-full h-full bg-transparent hover:bg-blue-500 hover:bg-opacity-10 transition-colors duration-200 rounded-lg"
               />
             )}
           </div>
@@ -145,13 +148,13 @@ export default function VotePage() {
         {/* VS Circle - positioned between profiles */}
         <div className="flex justify-center items-center my-8">
           <div className="relative">
-            <div className="w-20 h-20 bg-linkedin-blue rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+            <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
               VS
             </div>
             {!voted && (
               <button
                 onClick={() => handleVote()}
-                className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200"
+                className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200"
               >
                 Equal
               </button>
@@ -163,23 +166,25 @@ export default function VotePage() {
       {/* Next Pair Button */}
       {voted && (
         <div className="text-center">
-          <button
+          <HoverBorderGradient
+            as="button"
             onClick={loadNewPair}
-            className="linkedin-button inline-flex items-center px-8 py-3 text-lg"
+            containerClassName="rounded-full"
+            className="bg-black text-white flex items-center space-x-2"
           >
-            <ArrowRight className="w-5 h-5 mr-2" />
-            Next Pair
-          </button>
+            <ArrowRight className="w-5 h-5" />
+            <span>Next Pair</span>
+          </HoverBorderGradient>
         </div>
       )}
 
       {/* Voting Instructions */}
       {!voted && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-6 text-center backdrop-blur-sm">
+          <h3 className="text-lg font-semibold text-blue-300 mb-2">
             How to Vote
           </h3>
-          <p className="text-blue-800">
+          <p className="text-gray-300">
             Click on the profile you think is more &quot;cracked&quot; or click &quot;Equal&quot; if you think they&apos;re equally impressive.
             <br />
             Names, profile pictures, ELO scores, and LinkedIn links will be revealed after you vote.

@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import RealtimeIndicator from '@/components/RealtimeIndicator'
+import { NavBar } from '@/components/ui/tubelight-navbar'
+import { Squares } from '@/components/ui/squares-background'
+import { Home, Trophy } from 'lucide-react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,38 +14,31 @@ export const metadata: Metadata = {
   keywords: 'DVHS, Dougherty Valley High School, alumni, ranking, voting, ELO',
 }
 
+const navItems = [
+  { name: 'Home', url: '/', icon: Home },
+  { name: 'Leaderboard', url: '/leaderboard', icon: Trophy },
+]
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-50">
-          <header className="bg-white shadow-sm border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                <div className="flex items-center">
-                  <h1 className="text-2xl font-bold text-linkedin-blue">
-                    DVHS Alumni Ranking
-                  </h1>
-                  <span className="ml-2 text-sm text-gray-500">
-                    Who&apos;s More Cracked?
-                  </span>
-                </div>
-                <nav className="flex space-x-4">
-                  <a href="/" className="text-linkedin-blue hover:text-linkedin-dark font-medium">
-                    Home
-                  </a>
-                  <a href="/leaderboard" className="text-gray-600 hover:text-linkedin-blue font-medium">
-                    Leaderboard
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </header>
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="min-h-screen bg-[#060606] relative">
+          <div className="fixed inset-0 w-full h-full -z-10">
+            <Squares 
+              direction="diagonal"
+              speed={0.5}
+              squareSize={40}
+              borderColor="#333" 
+              hoverFillColor="#222"
+            />
+          </div>
+          <NavBar items={navItems} />
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-20 pb-24 relative z-10">
             {children}
           </main>
           <RealtimeIndicator />
