@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <div className="min-h-screen bg-black relative">
+        <div className="min-h-screen bg-black relative overflow-x-hidden">
           <Waves
             lineColor="rgba(0, 119, 181, 0.15)"
             backgroundColor="transparent"
@@ -29,7 +29,7 @@ export default function RootLayout({
             maxCursorMove={120}
             xGap={12}
             yGap={36}
-            className="fixed inset-0 z-0"
+            className="fixed inset-0 z-0 pointer-events-none"
           />
           <main className="relative z-10">
             {children}

@@ -4,16 +4,23 @@
 A Next.js application for ranking DVHS alumni profiles using an ELO rating system. Users can vote between randomly selected alumni profiles to determine who's more "cracked", with live rankings updated in real-time.
 
 ## Recent Changes
+**October 15, 2025** - Cool Loader & Mobile Scrolling Fix
+- Created custom triple-ring orbital loader with gradient animations (blue→purple→pink)
+- Replaced all basic spinners with cool loader across vote, leaderboard, and search pages
+- Fixed mobile scrolling issues by adding proper overflow settings (overflow-y: auto, overflow-x: hidden)
+- Added -webkit-overflow-scrolling: touch for smooth iOS scrolling
+- Added pointer-events-none to Waves background to prevent touch event blocking
+
 **October 15, 2025** - Premium Black & Gradient Design Update
 - Changed background from beige to pure black (#000000) for modern, premium look
 - Implemented dynamic gradient wave lines transitioning from blue → purple → pink
 - Updated all text colors to white/light shades for optimal contrast on black background
 - Rounded all button edges (rounded-full) for softer, more modern appearance
 - Applied liquid glass frosted effect to all UI components with enhanced shadow depth
-- Changed main site font to Space Grotesk for modern typography (vote profiles keep Inter)
+- Changed main site font to Outfit (modern, geometric sans-serif similar to Audit Sans)
 - Made vote profile cards highly transparent with blur effect for elegant presentation
 - Changed all button text from blue to white for better readability
-- Increased navigation button rounding for sleeker appearance
+- Integrated DVHS school crest logo and DV logo into homescreen branding
 
 **October 14, 2025** - Migrated from Vercel to Replit
 - Configured Next.js to run on port 5000 with host 0.0.0.0 for Replit compatibility
@@ -48,6 +55,8 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - **Interactive Elements**: Fully rounded buttons and inputs with smooth transitions
 - **Vote Cards**: Ultra-transparent with 3% white background and medium blur for elegant presentation
 - **Branding**: DVHS logo displayed on homescreen with 80% opacity for subtle integration
+- **Loading States**: Custom triple-ring orbital loader with counter-rotating animations and gradient colors
+- **Mobile Optimization**: Smooth touch scrolling with proper overflow handling for all devices
 
 ### Directory Structure
 - `/app` - Next.js App Router pages
