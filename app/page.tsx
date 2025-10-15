@@ -89,7 +89,7 @@ export default function HomePage() {
               alt="DV" 
               className="h-16 sm:h-20 w-auto -mr-1"
             />
-            <span className="text-[#5BA3D4]">HS</span>
+            <span className="text-[#5BA3D4] italic">HS</span>
             <span className="ml-2">Alumni Network</span>
           </h1>
           <p className="text-sm text-gray-400 mb-8">
