@@ -155,44 +155,6 @@ export default function HomePage() {
           )}
         </div>
       )}
-
-      {/* How It Works Section */}
-      {!hasSearched && (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
-            How It Works
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-linkedin-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">1. Vote</h3>
-              <p className="text-gray-600">
-                Compare two randomly selected DVHS alumni profiles and vote for who you think is more &quot;cracked&quot;
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-linkedin-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">2. Rank</h3>
-              <p className="text-gray-600">
-                Each vote affects ELO ratings in real-time. Winners gain points, losers lose points.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-linkedin-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <Trophy className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">3. Compete</h3>
-              <p className="text-gray-600">
-                Check the leaderboard to see who&apos;s currently at the top of the DVHS alumni rankings!
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
