@@ -52,10 +52,10 @@ export default function LeaderboardPage() {
   }
 
   const getRankIcon = (rank: number) => {
-    if (rank === 1) return <Trophy className="w-5 h-5 text-yellow-500" />
-    if (rank === 2) return <Medal className="w-5 h-5 text-gray-400" />
-    if (rank === 3) return <Award className="w-5 h-5 text-amber-600" />
-    return <span className="text-lg font-bold text-gray-600">#{rank}</span>
+    if (rank === 1) return <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
+    if (rank === 2) return <Medal className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
+    if (rank === 3) return <Award className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+    return <span className="text-sm sm:text-lg font-bold text-gray-600">#{rank}</span>
   }
 
   const getChangeIcon = (change: number) => {
@@ -153,7 +153,7 @@ export default function LeaderboardPage() {
             {leaderboard.map((entry) => (
               <div 
                 key={entry.id} 
-                className={`px-6 py-4 transition-all duration-200 ${
+                className={`px-3 sm:px-6 py-3 sm:py-4 transition-all duration-200 ${
                   entry.linkedin_url 
                     ? 'hover:bg-linkedin-blue hover:bg-opacity-5 cursor-pointer hover:shadow-sm border-l-4 border-transparent hover:border-linkedin-blue' 
                     : 'hover:bg-gray-50'
@@ -165,10 +165,10 @@ export default function LeaderboardPage() {
                 }}
                 title={entry.linkedin_url ? "Click to view LinkedIn profile" : ""}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                     {/* Rank */}
-                    <div className="flex items-center justify-center w-12">
+                    <div className="flex items-center justify-center w-8 sm:w-12 flex-shrink-0">
                       {getRankIcon(entry.rank)}
                     </div>
 
@@ -192,22 +192,22 @@ export default function LeaderboardPage() {
 
                     {/* Name and ELO */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center space-x-2">
-                        <h3 className="text-lg font-semibold text-gray-900 truncate">
+                      <div className="flex items-center gap-1 sm:gap-2">
+                        <h3 className="text-sm sm:text-lg font-semibold text-gray-900 break-words">
                           {entry.name}
                         </h3>
                         {entry.linkedin_url && (
-                          <ExternalLink className="w-4 h-4 text-linkedin-blue flex-shrink-0" />
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-linkedin-blue flex-shrink-0" />
                         )}
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-sm text-linkedin-blue font-semibold">
+                      <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+                        <span className="text-xs sm:text-sm text-linkedin-blue font-semibold">
                           ELO: {entry.elo}
                         </span>
                         {dailyChanges[entry.id] !== undefined && dailyChanges[entry.id] !== 0 && (
-                          <div className="flex items-center space-x-1">
+                          <div className="flex items-center gap-0.5 sm:gap-1">
                             {getChangeIcon(dailyChanges[entry.id])}
-                            <span className={`text-sm font-medium ${
+                            <span className={`text-xs sm:text-sm font-medium ${
                               dailyChanges[entry.id] > 0 ? 'text-green-600' : 'text-red-600'
                             }`}>
                               {dailyChanges[entry.id] > 0 ? '+' : ''}{dailyChanges[entry.id]}
@@ -218,8 +218,8 @@ export default function LeaderboardPage() {
                     </div>
                   </div>
 
-                  {/* ELO Score */}
-                  <div className="text-right">
+                  {/* ELO Score - Hidden on mobile */}
+                  <div className="text-right hidden sm:block">
                     <div className="text-2xl font-bold text-linkedin-blue">
                       {entry.elo}
                     </div>

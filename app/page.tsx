@@ -91,17 +91,17 @@ export default function HomePage() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto">
             <a
               href="/vote"
-              className="linkedin-button inline-flex items-center px-8 py-3 text-lg"
+              className="linkedin-button inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg"
             >
               <Trophy className="w-5 h-5 mr-2" />
               Start Voting
             </a>
             <a
               href="/leaderboard"
-              className="linkedin-button-outline inline-flex items-center px-8 py-3 text-lg"
+              className="linkedin-button-outline inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg"
             >
               <TrendingUp className="w-5 h-5 mr-2" />
               View Leaderboard

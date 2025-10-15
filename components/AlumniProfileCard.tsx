@@ -46,17 +46,17 @@ export default function AlumniProfileCard({
           <ProfilePicture profile={profile} size="xl" />
         </div>
         <div className="flex-1 min-w-0 w-full">
-          <div className="flex items-center justify-between">
-            <h3 className={`text-base sm:text-xl font-semibold text-gray-900 truncate ${blurred ? 'blur-content' : ''}`}>
+          <div className="flex items-start justify-between gap-2">
+            <h3 className={`text-sm sm:text-xl font-semibold text-gray-900 break-words ${blurred ? 'blur-content' : ''}`}>
               {profile.name}
             </h3>
             {showElo && (
-              <div className={`flex items-center space-x-1 sm:space-x-2 ${blurred ? 'blur-content' : ''}`}>
-                <span className="text-sm sm:text-lg font-bold text-linkedin-blue">
+              <div className={`flex items-center space-x-1 flex-shrink-0 ${blurred ? 'blur-content' : ''}`}>
+                <span className="text-xs sm:text-lg font-bold text-linkedin-blue">
                   {profile.elo}
                 </span>
                 {eloChange !== undefined && eloChange !== 0 && (
-                  <span className={`text-xs sm:text-sm ${eloChange > 0 ? 'elo-change-positive' : 'elo-change-negative'}`}>
+                  <span className={`text-xs ${eloChange > 0 ? 'elo-change-positive' : 'elo-change-negative'}`}>
                     {eloChange > 0 ? '+' : ''}{eloChange}
                   </span>
                 )}
@@ -65,25 +65,25 @@ export default function AlumniProfileCard({
           </div>
 
           {primaryExperience && (
-            <div className="mt-2 flex items-start text-gray-600">
+            <div className="mt-1 sm:mt-2 flex items-start text-gray-600">
               <Building className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
-              <span className="text-xs sm:text-sm line-clamp-2">
+              <span className="text-[10px] leading-tight sm:text-sm break-words">
                 {primaryExperience.role} at {primaryExperience.company}
               </span>
             </div>
           )}
 
           {profile.location && (
-            <div className="mt-1 flex items-center text-gray-500">
-              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-              <span className="text-xs sm:text-sm truncate">{profile.location}</span>
+            <div className="mt-1 flex items-start text-gray-500">
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
+              <span className="text-[10px] leading-tight sm:text-sm break-words">{profile.location}</span>
             </div>
           )}
 
           {primaryEducation && (
-            <div className="mt-2 flex items-start text-gray-600">
+            <div className="mt-1 sm:mt-2 flex items-start text-gray-600">
               <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 mr-1 mt-0.5 flex-shrink-0" />
-              <span className="text-xs sm:text-sm line-clamp-2">
+              <span className="text-[10px] leading-tight sm:text-sm break-words">
                 {primaryEducation.degree} at {primaryEducation.school}
               </span>
             </div>
@@ -107,8 +107,8 @@ export default function AlumniProfileCard({
 
       {/* Experience Section */}
       {(profile.experiences && profile.experiences.length > 0) || profile.experience_1_role ? (
-        <div className="mt-4 sm:mt-6">
-          <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 sm:mb-3">Experience</h4>
+        <div className="mt-3 sm:mt-6">
+          <h4 className="text-[10px] sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-3">Experience</h4>
           <div className="space-y-2 sm:space-y-3">
             {/* Show structured experience data first */}
             {[
@@ -126,8 +126,8 @@ export default function AlumniProfileCard({
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{exp.role}</p>
-                  <p className="text-xs sm:text-sm text-gray-600 truncate">{exp.company}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm font-medium text-gray-900 break-words">{exp.role}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm text-gray-600 break-words">{exp.company}</p>
                 </div>
               </div>
             ))}
@@ -138,8 +138,8 @@ export default function AlumniProfileCard({
                   <Building className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{exp.role}</p>
-                  <p className="text-xs sm:text-sm text-gray-600 truncate">{exp.company}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm font-medium text-gray-900 break-words">{exp.role}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm text-gray-600 break-words">{exp.company}</p>
                 </div>
               </div>
             ))}
@@ -149,8 +149,8 @@ export default function AlumniProfileCard({
 
       {/* Education Section */}
       {(profile.education && profile.education.length > 0) || profile.college_1_name ? (
-        <div className="mt-4 sm:mt-6">
-          <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 sm:mb-3">Education</h4>
+        <div className="mt-3 sm:mt-6">
+          <h4 className="text-[10px] sm:text-sm font-semibold text-gray-900 mb-1.5 sm:mb-3">Education</h4>
           <div className="space-y-2 sm:space-y-3">
             {/* Show structured education data first */}
             {[
@@ -167,8 +167,8 @@ export default function AlumniProfileCard({
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{edu.school}</p>
-                  <p className="text-xs sm:text-sm text-gray-600 truncate">{edu.degree}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm font-medium text-gray-900 break-words">{edu.school}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm text-gray-600 break-words">{edu.degree}</p>
                 </div>
               </div>
             ))}
@@ -179,8 +179,8 @@ export default function AlumniProfileCard({
                   <GraduationCap className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{edu.school}</p>
-                  <p className="text-xs sm:text-sm text-gray-600 truncate">{edu.degree}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm font-medium text-gray-900 break-words">{edu.school}</p>
+                  <p className="text-[10px] leading-tight sm:text-sm text-gray-600 break-words">{edu.degree}</p>
                 </div>
               </div>
             ))}
