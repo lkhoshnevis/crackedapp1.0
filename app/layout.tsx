@@ -38,9 +38,6 @@ export default function RootLayout({
                   <a href="/leaderboard" className="text-gray-600 hover:text-linkedin-blue font-medium">
                     Leaderboard
                   </a>
-                  <a href="/admin" className="text-gray-600 hover:text-linkedin-blue font-medium">
-                    Admin
-                  </a>
                 </nav>
               </div>
             </div>
