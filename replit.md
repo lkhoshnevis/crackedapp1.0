@@ -22,6 +22,7 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 - Root cause: LiquidGlassCard's absolute glass overlay layers were intercepting touch events on iOS Safari before they reached the scrollable container
 - Solution implemented:
   - Added `pointer-events-none` to both absolute glass overlay layers in LiquidGlassCard component
+  - Added `pointer-events-none` to both glass overlay layers in LiquidGlassInput component (SearchBar was blocking touches after page load)
   - Added `-webkit-overflow-scrolling: touch` to leaderboard scrollable container for iOS momentum scrolling
   - Added `overscroll-behavior: contain` to prevent scroll chaining issues
   - Simplified root layout to use natural body scrolling instead of complex absolute positioning
