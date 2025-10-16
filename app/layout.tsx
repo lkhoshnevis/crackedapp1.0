@@ -14,35 +14,39 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" style={{ height: '100%' }}>
-      <body 
-        className={outfit.className} 
-        style={{ 
-          height: '100%', 
-          overflowY: 'auto', 
-          overflowX: 'hidden',
-          WebkitOverflowScrolling: 'touch',
-          touchAction: 'pan-y'
-        }}
-      >
-        <Waves
-          lineColor="rgba(0, 119, 181, 0.15)"
-          backgroundColor="transparent"
-          waveSpeedX={0.02}
-          waveSpeedY={0.01}
-          waveAmpX={40}
-          waveAmpY={20}
-          friction={0.9}
-          tension={0.01}
-          maxCursorMove={120}
-          xGap={12}
-          yGap={36}
-          className="fixed inset-0 z-0 pointer-events-none"
-        />
-        <main className="relative z-10 min-h-screen" style={{ touchAction: 'pan-y' }}>
-          {children}
-        </main>
-        <RealtimeIndicator />
+    <html lang="en">
+      <body className={outfit.className}>
+        <div 
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            overscrollBehavior: 'none'
+          }}
+        >
+          <Waves
+            lineColor="rgba(0, 119, 181, 0.15)"
+            backgroundColor="transparent"
+            waveSpeedX={0.02}
+            waveSpeedY={0.01}
+            waveAmpX={40}
+            waveAmpY={20}
+            friction={0.9}
+            tension={0.01}
+            maxCursorMove={120}
+            xGap={12}
+            yGap={36}
+            className="fixed inset-0 z-0 pointer-events-none"
+          />
+          <main className="relative z-10 min-h-screen">
+            {children}
+          </main>
+          <RealtimeIndicator />
+        </div>
       </body>
     </html>
   )
