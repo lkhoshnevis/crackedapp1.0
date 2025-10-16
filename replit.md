@@ -4,6 +4,12 @@
 A Next.js application for ranking DVHS alumni profiles using an ELO rating system. Users can vote between randomly selected alumni profiles to determine who's more "cracked", with live rankings updated in real-time.
 
 ## Recent Changes
+**October 16, 2025** - Bright Blue Gradient Background
+- Enhanced animated wave background with vibrant blue gradient
+- Gradient flows from dark blue → medium blue → sky blue
+- Increased line opacity from 0.15-0.4 to 0.6-0.8 for better visibility
+- Creates a modern, energetic visual effect while maintaining elegance
+
 **October 16, 2025** - iOS Mobile Scrolling Fix (Final)
 - **Fixed critical iOS scrolling bug** preventing users from scrolling on iPhone
 - Root cause: `overflow-hidden` on LiquidGlassCard component blocked all vertical scrolling on iOS Safari
