@@ -150,7 +150,13 @@ export default function LeaderboardPage() {
             </p>
           </div>
         ) : (
-          <div className="divide-y divide-gray-200">
+          <div 
+            className="divide-y divide-gray-200 max-h-[600px] overflow-y-auto scrollbar-custom"
+            style={{
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#3B82F6 rgba(255,255,255,0.1)'
+            }}
+          >
             {leaderboard.map((entry) => (
               <div 
                 key={entry.id} 
