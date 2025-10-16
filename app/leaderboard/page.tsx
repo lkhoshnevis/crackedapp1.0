@@ -131,7 +131,7 @@ export default function LeaderboardPage() {
       </div>
 
       {/* Leaderboard */}
-      <LiquidGlassCard className="overflow-hidden">
+      <LiquidGlassCard>
         <div className="bg-white/5 px-6 py-4 border-b border-gray-700">
           <h2 className="text-lg font-semibold text-white">
             {searchQuery ? `Search Results for "${searchQuery}"` : 'Top Rankings'}

@@ -4,16 +4,22 @@
 A Next.js application for ranking DVHS alumni profiles using an ELO rating system. Users can vote between randomly selected alumni profiles to determine who's more "cracked", with live rankings updated in real-time.
 
 ## Recent Changes
-**October 15, 2025** - Cool Loader & Mobile Scrolling Fix
+**October 16, 2025** - iOS Mobile Scrolling Fix (Final)
+- **Fixed critical iOS scrolling bug** preventing users from scrolling on iPhone
+- Root cause: `overflow-hidden` on LiquidGlassCard component blocked all vertical scrolling on iOS Safari
+- Solution implemented:
+  - Removed `overflow-hidden` from leaderboard LiquidGlassCard wrapper
+  - Simplified root layout to use natural body scrolling instead of complex absolute positioning
+  - Removed problematic scroll container wrapper that created non-scrollable stacking context on iOS
+  - Maintained `-webkit-overflow-scrolling: touch` for smooth momentum scrolling
+  - Kept `pointer-events-none` on Waves background to prevent touch event blocking
+- **Result**: Users can now scroll leaderboard lists, search results, and all content on iPhone
+
+**October 15, 2025** - Cool Loader & Initial Mobile Scrolling Attempts
 - Created custom triple-ring orbital loader with gradient animations (blue→purple→pink)
 - Replaced all basic spinners with cool loader across vote, leaderboard, and search pages
-- Fixed mobile scrolling issues with comprehensive touch support:
-  - Set html/body height to 100% for proper viewport handling
-  - Added overflow-y: auto to body for vertical scrolling
-  - Added -webkit-overflow-scrolling: touch for smooth iOS scrolling
-  - Added touch-action: pan-y to explicitly enable vertical panning on mobile
-  - Added pointer-events-none to Waves background to prevent touch event blocking
-  - Removed tap highlight for cleaner touch interactions
+- Attempted multiple mobile scrolling fixes (complex positioning, touch overlays)
+- Note: Final fix required removing overflow-hidden from UI components (see October 16 update)
 
 **October 15, 2025** - Premium Black & Gradient Design Update
 - Changed background from beige to pure black (#000000) for modern, premium look
