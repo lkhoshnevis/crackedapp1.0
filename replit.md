@@ -19,12 +19,12 @@ A Next.js application for ranking DVHS alumni profiles using an ELO rating syste
 
 **October 16, 2025** - iOS Mobile Scrolling Fix (Final)
 - **Fixed critical iOS scrolling bug** preventing users from scrolling on iPhone
-- Root cause: `overflow-hidden` on LiquidGlassCard component blocked all vertical scrolling on iOS Safari
+- Root cause: LiquidGlassCard's absolute glass overlay layers were intercepting touch events on iOS Safari before they reached the scrollable container
 - Solution implemented:
-  - Removed `overflow-hidden` from leaderboard LiquidGlassCard wrapper
+  - Added `pointer-events-none` to both absolute glass overlay layers in LiquidGlassCard component
+  - Added `-webkit-overflow-scrolling: touch` to leaderboard scrollable container for iOS momentum scrolling
+  - Added `overscroll-behavior: contain` to prevent scroll chaining issues
   - Simplified root layout to use natural body scrolling instead of complex absolute positioning
-  - Removed problematic scroll container wrapper that created non-scrollable stacking context on iOS
-  - Maintained `-webkit-overflow-scrolling: touch` for smooth momentum scrolling
   - Kept `pointer-events-none` on Waves background to prevent touch event blocking
 - **Result**: Users can now scroll leaderboard lists, search results, and all content on iPhone
 

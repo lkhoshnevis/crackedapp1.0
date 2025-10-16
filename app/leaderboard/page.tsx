@@ -154,7 +154,9 @@ export default function LeaderboardPage() {
             className="divide-y divide-gray-200 max-h-[600px] overflow-y-auto scrollbar-custom"
             style={{
               scrollbarWidth: 'thin',
-              scrollbarColor: '#3B82F6 rgba(255,255,255,0.1)'
+              scrollbarColor: '#3B82F6 rgba(255,255,255,0.1)',
+              WebkitOverflowScrolling: 'touch',
+              overscrollBehavior: 'contain'
             }}
           >
             {leaderboard.map((entry) => (
