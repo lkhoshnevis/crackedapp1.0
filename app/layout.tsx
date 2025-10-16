@@ -30,10 +30,19 @@ export default function RootLayout({
           yGap={36}
           className="fixed inset-0 z-0 pointer-events-none"
         />
-        <main className="relative z-10 min-h-screen">
-          {children}
-        </main>
-        <RealtimeIndicator />
+        <div 
+          className="absolute inset-0 z-50" 
+          style={{
+            touchAction: 'pan-y',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          <main className="relative z-10 min-h-screen">
+            {children}
+          </main>
+          <RealtimeIndicator />
+        </div>
       </body>
     </html>
   )
